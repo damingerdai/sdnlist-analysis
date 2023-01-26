@@ -28,7 +28,7 @@ fn get_sdn_list_text() -> Result<String, Box<dyn std::error::Error>> {
 
 fn parse_digital_currency_address(text: &str) {
     lazy_static! {
-        static ref RE: Regex = Regex::new(r"(Digital[\s]{0,}Currency[\s]{0,}Address)[\s]{0,}-[\s]{0,}([\w]{3})[\s]{0,}([\w-]+)").unwrap();
+        static ref RE: Regex = Regex::new(r"(Digital[\s]{0,}Currency[\s]{0,}Address)[\s]{0,}-[\s]{0,}([\w]{3,4})[\s]{0,}([\w-]+)").unwrap();
     }
     let lines: Vec<DigitalCurrencyAddress> = RE.captures_iter(text).map(|cap| {
 
